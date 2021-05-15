@@ -21,13 +21,13 @@ const handler = async (req, res, event) => {
             throw new Error(`Unhandled event: ${event.type}`)
         }
       } catch (error) {
-        res.status(500).json({ message: 'Unknown event' })
+        return res.status(500).json({ message: 'Unknown event' })
       }
     }
 
-    res.status(204).json({ message: 'Received' })
+    return res.status(204).json({ message: 'Received' })
   } else {
-    res.status(405).json({ message: 'Method not allowed' })
+    return res.status(405).json({ message: 'Method not allowed' })
   }
 }
 
