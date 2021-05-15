@@ -13,6 +13,7 @@ const handler = async (req, res, event) => {
   if (req.method === 'POST') {
     if (permittedEvents.includes(event.type)) {
       try {
+        console.log(event.type)
         switch (event.type) {
           case 'checkout.session.completed':
             await createOrder({ sessionId: event.data.object.id })
