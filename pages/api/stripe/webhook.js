@@ -13,7 +13,6 @@ const handler = async (req, res, event) => {
   if (req.method === 'POST') {
     if (permittedEvents.includes(event.type)) {
       try {
-        console.log(event.type)
         switch (event.type) {
           case 'checkout.session.completed':
             await createOrder({ sessionId: event.data.object.id })
@@ -22,6 +21,7 @@ const handler = async (req, res, event) => {
             throw new Error(`Unhandled event: ${event.type}`)
         }
       } catch (error) {
+        console.error(error)
         return res.status(500).json({ message: 'Unknown event' })
       }
     }
