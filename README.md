@@ -18,7 +18,7 @@ This project is an example of how to build fully-functioning Next.js commerce st
 - Use the [GraphCMS mutation API](https://graphcms.com/mutation-api) with [API Routes](https://nextjs.org/docs/api-routes/introduction) to create orders on successful checkout (via webhook).
 - Multiple currency support.
 
-## Usage
+## 使用方法
 
 > This reference application requires a Stripe account
 
