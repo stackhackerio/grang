@@ -16,6 +16,7 @@ const handler = async (req, res, event) => {
         switch (event.type) {
           case 'checkout.session.completed':
             await createOrder({ sessionId: event.data.object.id })
+            console.log('created order')
             break
           default:
             throw new Error(`Unhandled event: ${event.type}`)
@@ -25,6 +26,7 @@ const handler = async (req, res, event) => {
         return res.status(500).json({ message: 'Unknown event' })
       }
     }
+    console.log('return res..')
 
     return res.status(204).json({ message: 'Received' })
   } else {
