@@ -1,60 +1,57 @@
-<h2 align="center">
-  graphcms-commerce-starter
-</h2>
+# GraphCMSオンラインストア
 
-<p align="center">Build modern, SEO ready commerce storefronts with GraphCMS, Next.js, Stripe and Tailwind CSS</p>
+GraphCMS, Next.js, Stripe, Tailwind CSSを使って、モダンでSEO対策済みのオンラインストアを構築できます。
 
-## About
+このスターターは、バックエンドにGraphCMSとStripe、フロントにNext.jsを使用した、完全に機能するショッピングサイトのサンプルです。実際に動作しているデモは[こちら](https://commerce.withheadlesscms.com/)でご覧いただけます。
 
-This project is an example of how to build fully-functioning Next.js commerce storefront with GraphCMS and Stripe. View the demo on [https://commerce.withheadlesscms.com/](https://commerce.withheadlesscms.com/).
+## 機能
 
-## Features
-
-- Fully localized product catalogue built with [GraphCMS localization](https://graphcms.com/content-localization) and [Next.js](https://nextjs.org/docs/advanced-features/i18n-routing).
-- Pre-rendered catalogue pages via [`getStaticProps`](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) and [`getStaticPaths`](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation).
-- Dynamic client-side data fetching via [SWR](https://swr.vercel.app).
-- Localized shopping cart with [`react-use-cart`](https://github.com/notrab/react-use-cart).
-- Hosted checkout and payment flow with [Stripe Checkout](https://stripe.com/docs/payments/checkout).
-- Use the [GraphCMS mutation API](https://graphcms.com/mutation-api) with [API Routes](https://nextjs.org/docs/api-routes/introduction) to create orders on successful checkout (via webhook).
-- Multiple currency support.
+- [GraphCMS ローカライゼーション](https://graphcms.com/content-localization)と[Next.js](https://nextjs.org/docs/advanced-features/i18n-routing)で完全にローカライズした製品カタログ
+- [`getStaticProps`](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)と[`getStaticPaths`](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation)により、プレレンダリングしたカタログページ
+- [SWR](https://swr.vercel.app)で動的にクライアントサイドのデータ取得
+- [`react-use-cart`](https://github.com/notrab/react-use-cart)を使ってショッピングカートをローカライズ
+- [Stripe Checkout](https://stripe.com/jp/docs/payments/checkout)を使って、ホストによるチェックアウトと支払いフロー
+- [GraphCMS mutation API](https://graphcms.com/mutation-api) と [API Routes](https://nextjs.org/docs/api-routes/introduction) を使って、チェックアウトが成功したときに注文を作成（Webhook経由）
+- 複数の通貨をサポート
 
 ## 使用方法
 
-> This reference application requires a Stripe account
+> このリファレンスアプリケーションには、Stripeアカウントが必要です
 
-1. Clone the repository with [`degit`](https://github.com/Rich-Harris/degit) and install project dependencies.
+1. [`degit`](https://github.com/Rich-Harris/degit)でリポジトリをクローンし、プロジェクトの依存関係をインストールします。
 
-```bash
+```
 npx degit GraphCMS/graphcms-commerce-starter#main graphcms-commerce-starter
 cd graphcms-commerce-starter
 yarn
 ```
 
-2. Create a new GraphCMS project using the `Commerce Starter` template.
+2. `Commerce Starter` テンプレートを使って、新しい GraphCMS プロジェクトを作成します。
 
-3. Add a `.env` file by cloning `.env.sample` and providing the required variable values.
+3. `.env.sample` をクローンして `.env` ファイルを追加し、必要な変数値を指定します。
 
-> It is recommended you create separate GraphCMS [auth tokens](https://graphcms.com/docs/authorization#permanent-auth-tokens) to handle querying and mutating data.
+> GraphCMSの[auth tokens](https://graphcms.com/docs/authorization#permanent-auth-tokens)を別途作成して、データの照会や変更を行うことをお勧めします。
 
 ```
-GRAPHCMS_MUTATION_TOKEN=
-NEXT_PUBLIC_GRAPHCMS_TOKEN=
-NEXT_PUBLIC_GRAPHCMS_URL=
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-STRIPE_SECRET_KEY=
+graphcms_mutation_token=
+next_public_graphcms_token=
+next_public_graphcms_url=
+next_public_stripe_publishable_key=
+stripe_secret_key=
 ```
 
-4. Setup a [Stripe webhook](https://stripe.com/docs/payments/handling-payment-events) for the `checkout.session.completed` event to order to enable GraphCMS fulfilment via the mutation API.
+4. [Stripe webhook](https://stripe.com/docs/payments/handling-payment-events)を`checkout.session.completed`イベントを設定し、mutation APIを介してGraphCMSのフルフィルメントを有効にします。
 
-5. Configure support for more locales or currencies in [`graphcms.config.js`](graphcms.config.js) if required. Learn more [here](#configuration).
+5. 必要に応じて、[`graphcms.config.js`](graphcms.config.js)で、より多くのロケールや通貨のサポートを設定します。詳しくは[こちら](#設定)をご覧ください。
 
-6. Run `yarn dev`
+6. `yarn dev` を実行します。
 
-## Configuration
+## 設定
+<div id="設定" />
 
-Project configuration for supported locales and currencies is managed in [`graphcms.config.js`](graphcms.config.js).
+プロジェクトがサポートするロケールや通貨の設定は、[`graphcms.config.js`](graphcms.config.js)で管理します。
 
-> It is important that the `locales` array reflects the enabled locales in your GraphCMS project.
+> `locales`の配列に、GraphCMSプロジェクトで有効になっているロケールが反映されていることが重要です。
 
 ```js
 module.exports = {
@@ -79,4 +76,14 @@ module.exports = {
     }
   ]
 }
-```
+``` 
+
+## ライセンス
+
+オリジナルのコードと同様にMTIライセンスを採用しています。
+
+https://github.com/btahir/next-shopify-starter
+
+## 注意事項
+
+コード自体のローカライズはWIPです。また、準備でき次第公開して参ります。
