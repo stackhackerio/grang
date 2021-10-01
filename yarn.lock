@@ -2373,10 +2373,10 @@ strip-ansi@6.0.0:
   dependencies:
     ansi-regex "^5.0.0"
 
-stripe@^8.156.0:
-  version "8.156.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.156.0.tgz#040de551df88d71ef670a8c8d4df114c3fa6eb4b"
-  integrity sha512-q+bixlhaxnSI/Htk/iB1i5LhuZ557hL0pFgECBxQNhso1elxIsOsPOIXEuo3tSLJEb8CJSB7t/+Fyq6KP69tAQ==
+stripe@^8.178.0:
+  version "8.178.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.178.0.tgz#89506b27501174eef12cb8ad57cc7d21c98b086a"
+  integrity sha512-Yk31NdIKf+MKTOdS2CTUIAHzUHOQwayoJFHBkrKGo7bJAlkPFzrIeOORH8SpduoXPZF8mq0JA7qNcFuFPBqabA==
   dependencies:
     "@types/node" ">=8.1.0"
     qs "^6.6.0"
